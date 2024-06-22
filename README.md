@@ -13,5 +13,5 @@ oj t -c " python main.py" -d test
 ## コードの提出
 
 ```
-abcs
+accs
 ```
