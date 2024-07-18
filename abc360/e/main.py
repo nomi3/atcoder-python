@@ -34,3 +34,7 @@ MOD = 998244353
 # 期待値のmodを計算して出力
 result = expected_position_mod(N, K, MOD)
 print(result)
+
+
+# aaaabbbbb
+# bbbb
