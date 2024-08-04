@@ -7,7 +7,7 @@ acc n <contest-id>
 ## テストの実行
 
 ```
-oj t -c " python main.py" -d test
+acct
 ```
 
 ## コードの提出
