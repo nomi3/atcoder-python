@@ -1,15 +1,19 @@
 N = int(input())
 A = list(map(int, input().split()))
-
-result = 0
-xor_count = [0] * 30  # 10^8 < 2^27 なので30ビットで十分
-
-for i, a in enumerate(A):
-    for bit in range(30):
-        if a & (1 << bit):
-            result += (N - i) * (1 << bit)
-            xor_count[bit] = i + 1 - xor_count[bit]
+ans = 0
+A_MAX = 10**8
+BIT_LEN = len(f"{A_MAX:b}")  # 2進数化して桁数
+for i in range(BIT_LEN):  # iビット目
+    acc = 0  # 累積和
+    cnt_0, cnt_1 = 1, 0  # 累積XORを求める際の0と1の数
+    cnt_ai = 0  # 配列Aのiビット目の1の数を数えておく
+    for a in A:
+        v = (a >> i) & 1  # iビット目の値(0 or 1)
+        cnt_ai += v  # iビット目の1の数を数えておく
+        acc ^= v
+        if acc == 0:
+            cnt_0 += 1
         else:
-            result += xor_count[bit] * (1 << bit)
-
-print(result)
+            cnt_1 += 1
+    ans += (cnt_0 * cnt_1 - cnt_ai) * (1 << i)
+print(ans)
