@@ -17,3 +17,6 @@ for i in range(BIT_LEN):  # iビット目
             cnt_1 += 1
     ans += (cnt_0 * cnt_1 - cnt_ai) * (1 << i)
 print(ans)
+
+print(f"{ans:b}")
+print(f"{ans:b}".count("1"))
