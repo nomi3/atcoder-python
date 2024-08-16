@@ -29,3 +29,5 @@ def solve(N, S):
 N = int(input())
 S = input()
 print(solve(N, S))
+
+print(f"{solve(N, S):b}")
